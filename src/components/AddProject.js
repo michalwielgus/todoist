@@ -39,26 +39,37 @@ export const AddProject = ({ shouldShow = false }) => {
             placeholder="Name your project"
           />
           <button
+            aria-label="Add Project"
+            tabIndex={0}
             className="add-project__submit"
             type="button"
             onClick={() => addProject()}
+            onKeyDown={() => addProject()}
             data-testid="add-project-submit"
           >
             Add project
           </button>
           <span
+            aria-label="Cancel adding project"
+            role="button"
+            tabIndex={0}
             className="add-project__cancel"
             data-testid="hide-project-overlay"
             onClick={() => setShow(false)}
+            onKeyDown={() => setShow(false)}
           >
             Cancel
           </span>
         </div>
       )}
       <div
+        aria-label="Add project"
+        role="button"
+        tabIndex={0}
         className="add-project__show"
         data-test-id="add-project-action"
         onClick={() => setShow(!show)}
+        onKeyDown={() => setShow(!show)}
       >
         <span className="add-project__plus">+</span>
         <span className="add-project__text">Add Project</span>

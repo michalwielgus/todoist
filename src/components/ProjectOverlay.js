@@ -15,11 +15,18 @@ export const ProjectOverlay = ({
         <ul className="project-overlay__list">
           {projects.map((project) => (
             <li
+              aria-label="Select the task project"
               key={project.projectId}
               onClick={() => {
                 setProject(project.projectId);
                 setShowProjectOverlay(false);
               }}
+              onKeyDown={() => {
+                setProject(project.projectId);
+                setShowProjectOverlay(false);
+               }}
+               role="button"
+               tabIndex={0}
             >
               {project.name}
             </li>

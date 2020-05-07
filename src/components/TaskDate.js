@@ -7,10 +7,17 @@ export const TaskDate = ({ setTaskDate, showTaskDate, setShowTaskDate }) =>
     <div className="task-date" data-testid="task-date-overlay">
       <ul className="task-date__list">
         <li
+          aria-label="Select today as the task date"
           onClick={() => {
             setShowTaskDate(false);
             setTaskDate(moment().format('DD/MM/YYYY'));
           }}
+          onKeyDown={() => {
+            setShowTaskDate(false);
+            setTaskDate(moment().format('DD/MM/YYYY'));
+          }}
+          role="button"
+          tabIndex={0}
           data-testid="task-date-today"
         >
           <span>
@@ -19,10 +26,17 @@ export const TaskDate = ({ setTaskDate, showTaskDate, setShowTaskDate }) =>
           <span>Today</span>
         </li>
         <li
+          aria-label="Select tomorrow as the task date"
           onClick={() => {
             setShowTaskDate(false);
             setTaskDate(moment().add(1, 'day').format('DD/MM/YYYY'));
           }}
+          onKeyDown={() => {
+            setShowTaskDate(false);
+            setTaskDate(moment().add(1, 'day').format('DD/MM/YYYY'));
+          }}
+          role="button"
+          tabIndex={0}
           data-testid="task-date-tomorrow"
         >
           <span>
@@ -31,10 +45,17 @@ export const TaskDate = ({ setTaskDate, showTaskDate, setShowTaskDate }) =>
           <span>Tomorrow</span>
         </li>
         <li
+          aria-label="Select next week as the task date"
           onClick={() => {
             setShowTaskDate(false);
             setTaskDate(moment().add(7, 'days').format('DD/MM/YYYY'));
           }}
+          onKeyDown={() => {
+            setShowTaskDate(false);
+            setTaskDate(moment().add(7, 'days').format('DD/MM/YYYY'));
+          }}
+          role="button"
+          tabIndex={0}
           data-testid="task-date-next-week"
         >
           <span>
