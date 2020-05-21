@@ -57,6 +57,7 @@ export const AddTask = ({
   return (
     <div
       className={showQuickAddTask ? 'add-task add-task__overlay' : 'add-task'}
+      data-testid="add-task-comp"
     >
       {showAddTaskMain && (
         <div
@@ -64,7 +65,7 @@ export const AddTask = ({
           className="add-task__shallow"
           data-testid="show-main-action"
           onClick={() => setShowMain(!showMain)}
-          onKeyDown={() => setShowMain(!showMain)}
+          onKeyPress={() => setShowMain(!showMain)}
           role="button"
           tabIndex={0}
         >
@@ -88,7 +89,7 @@ export const AddTask = ({
                     setShowProjectOverlay(false);
                     setShowQuickAddTask(false);
                   }}
-                  onKeyDown={() => {
+                  onKeyPress={() => {
                     setShowMain(false);
                     setShowProjectOverlay(false);
                     setShowQuickAddTask(false);
@@ -128,7 +129,7 @@ export const AddTask = ({
                 ? addTask() && setShowQuickAddTask(false)
                 : addTask()
             }
-            onKeyDown={() =>
+            onKeyPress={() =>
               showQuickAddTask
                 ? addTask() && setShowQuickAddTask(false)
                 : addTask()
@@ -138,22 +139,21 @@ export const AddTask = ({
             AddTask
           </button>
           {!showQuickAddTask && (
-          
-          <span
-            aria="Cancel adding task"
-            className="add-task__cancel"
-            data-testid="add-task-main-cancel"
-            onClick={() => {
-              setShowMain(false);
-              setShowProjectOverlay(false);
-            }}
-            onKeyDown={() => {
-              setShowMain(false);
-              setShowProjectOverlay(false);
-            }}
-            role="button"
-            tabIndex={0}
-          >
+            <span
+              aria="Cancel adding task"
+              className="add-task__cancel"
+              data-testid="add-task-main-cancel"
+              onClick={() => {
+                setShowMain(false);
+                setShowProjectOverlay(false);
+              }}
+              onKeyPress={() => {
+                setShowMain(false);
+                setShowProjectOverlay(false);
+              }}
+              role="button"
+              tabIndex={0}
+            >
               Cancel
             </span>
           )}
@@ -161,7 +161,7 @@ export const AddTask = ({
             className="add-task__project"
             data-testid="show-project-overlay"
             onClick={() => setShowProjectOverlay(!showProjectOverlay)}
-            onKeyDown={() => setShowProjectOverlay(!showProjectOverlay)}
+            onKeyPress={() => setShowProjectOverlay(!showProjectOverlay)}
             role="button"
             tabIndex={0}
           >
@@ -170,9 +170,9 @@ export const AddTask = ({
           <span
             aria-label="Select task date"
             className="add-task__date"
-            ata-testid="show-task-date-overlay"
+            data-testid="show-task-date-overlay"
             onClick={() => setShowTaskDate(!showTaskDate)}
-            onKeyDown={() => setShowProjectOverlay(!showProjectOverlay)}
+            onKeyPress={() => setShowTaskDate(!showTaskDate)}
             role="button"
             tabIndex={0}
           >

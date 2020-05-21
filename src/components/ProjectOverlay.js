@@ -7,7 +7,6 @@ export const ProjectOverlay = ({
   setShowProjectOverlay,
 }) => {
   const { projects } = useProjectsValue();
-
   return (
     projects &&
     showProjectOverlay && (
@@ -15,18 +14,19 @@ export const ProjectOverlay = ({
         <ul className="project-overlay__list">
           {projects.map((project) => (
             <li
+              data-testid="project-overlay-action"
               aria-label="Select the task project"
               key={project.projectId}
               onClick={() => {
                 setProject(project.projectId);
                 setShowProjectOverlay(false);
               }}
-              onKeyDown={() => {
+              onKeyPress={() => {
                 setProject(project.projectId);
                 setShowProjectOverlay(false);
-               }}
-               role="button"
-               tabIndex={0}
+              }}
+              role="button"
+              tabIndex={0}
             >
               {project.name}
             </li>

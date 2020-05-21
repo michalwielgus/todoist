@@ -12,11 +12,11 @@ import { AddProject } from '../AddProject';
 
 export const Sidebar = () => {
   const { setSelectedProject } = useSelectedProjectValue();
-  const [active, setActive] = useState('INBOX');
+  const [active, setActive] = useState('inbox');
   const [showProjects, setShowProjects] = useState(true);
 
   return (
-    <div className="sidebar">
+    <div className="sidebar" data-testid="sidebar">
       <ul className="sidebar__generic">
         <li
           aria-label="Show Inbox"
@@ -26,7 +26,7 @@ export const Sidebar = () => {
             setActive('inbox');
             setSelectedProject('INBOX');
           }}
-          onKeyDown={() => {
+          onKeyPress={() => {
             setActive('inbox');
             setSelectedProject('INBOX');
           }}
@@ -46,7 +46,7 @@ export const Sidebar = () => {
             setActive('today');
             setSelectedProject('TODAY');
           }}
-          onKeyDown={() => {
+          onKeyPress={() => {
             setActive('today');
             setSelectedProject('TODAY');
           }}
@@ -60,13 +60,13 @@ export const Sidebar = () => {
         </li>
         <li
           aria-label="Show Tasks for the next week"
-          className={active === 'inbox' ? 'next_7' : undefined}
+          className={active === 'next_7' ? 'active' : undefined}
           data-testid="next_7"
           onClick={() => {
             setActive('next_7');
             setSelectedProject('NEXT_7');
           }}
-          onKeyDown={() => {
+          onKeyPress={() => {
             setActive('next_7');
             setSelectedProject('NEXT_7');
           }}
@@ -82,7 +82,7 @@ export const Sidebar = () => {
       <div
         className="sidebar__middle"
         onClick={() => setShowProjects(!showProjects)}
-        onKeyDown={() => setShowProjects(!showProjects)}
+        onKeyPress={() => setShowProjects(!showProjects)}
         role="button"
         tabIndex={0}
       >
@@ -93,7 +93,11 @@ export const Sidebar = () => {
         </span>
         <h2>Projects</h2>
       </div>
-      <ul className="sidebar__projects">{showProjects && <Projects />}</ul>
+      {showProjects && (
+        <ul className="sidebar__projects" data-testid="sidebar-projects">
+          <Projects />
+        </ul>
+      )}
       <AddProject />
     </div>
   );

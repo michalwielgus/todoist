@@ -29,30 +29,34 @@ export const Project = ({ project }) => {
         className="sidebar__project-delete"
         data-testid="delete-project"
         onClick={() => setShowConfirm(!showConfirm)}
-        onKeyDown={() => setShowConfirm(!showConfirm)}
+        onKeyPress={() => setShowConfirm(!showConfirm)}
         role="button"
         tabIndex={0}
       >
         <FaTrashAlt />
         {showConfirm && (
           <div className="project-delete-modal">
-            <div class="project-delete-modal__inner">
+            <div className="project-delete-modal__inner">
               <p>Are you sure you want to delete this project?</p>
               <button
                 aria-label="Confirm deletion of a project"
                 type="button"
                 onClick={() => deleteProject(project.docId)}
-                onKeyDown={() => deleteProject(project.docId)}
+                onKeyPress={() => deleteProject(project.docId)}
                 tabIndex={0}
               >
                 Delete
               </button>
               <span
-                aria-label="Cancel deletion of a project" 
-                onClick={() => setShowConfirm(!showConfirm)} 
-                onKeyDown={() => setShowConfirm(!showConfirm)} 
-                role="button" 
-                tabIndex={0}>Cancel</span>
+                data-testid="cancel-deletion"
+                aria-label="Cancel deletion of a project"
+                onClick={() => setShowConfirm(!showConfirm)}
+                onKeyPress={() => setShowConfirm(!showConfirm)}
+                role="button"
+                tabIndex={0}
+              >
+                Cancel
+              </span>
             </div>
           </div>
         )}

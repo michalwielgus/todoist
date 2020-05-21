@@ -13,7 +13,7 @@ export const Checkbox = ({ id }) => {
       className="checkbox-holder"
       data-testid="checkbox-action"
       onClick={() => archiveTask()}
-      onKeyDown={() => archiveTask()}
+      onKeyPress={() => archiveTask()}
     >
       <span className="checkbox" />
     </div>

@@ -29,7 +29,7 @@ export const AddProject = ({ shouldShow = false }) => {
   return (
     <div className="add-project" data-testid="add-project">
       {show && (
-        <div className="add-project__input">
+        <div className="add-project__input" data-testid="add-project-inner">
           <input
             value={projectName}
             onChange={(e) => setProjectName(e.target.value)}
@@ -44,7 +44,7 @@ export const AddProject = ({ shouldShow = false }) => {
             className="add-project__submit"
             type="button"
             onClick={() => addProject()}
-            onKeyDown={() => addProject()}
+            onKeyPress={() => addProject()}
             data-testid="add-project-submit"
           >
             Add project
@@ -56,7 +56,7 @@ export const AddProject = ({ shouldShow = false }) => {
             className="add-project__cancel"
             data-testid="hide-project-overlay"
             onClick={() => setShow(false)}
-            onKeyDown={() => setShow(false)}
+            onKeyPress={() => setShow(false)}
           >
             Cancel
           </span>
@@ -67,9 +67,9 @@ export const AddProject = ({ shouldShow = false }) => {
         role="button"
         tabIndex={0}
         className="add-project__show"
-        data-test-id="add-project-action"
+        data-testid="add-project-action"
         onClick={() => setShow(!show)}
-        onKeyDown={() => setShow(!show)}
+        onKeyPress={() => setShow(!show)}
       >
         <span className="add-project__plus">+</span>
         <span className="add-project__text">Add Project</span>

@@ -11,7 +11,7 @@ export const Projects = ({ activeValue = null }) => {
         <li
           key={project.projectId}
           data-doc-id={project.docId}
-          data-testid="project-action"
+          data-testid="project-action-parent"
           role="button"
           className={
             active === project.projectId
@@ -20,9 +20,10 @@ export const Projects = ({ activeValue = null }) => {
           }
         >
           <button
+            data-testid="project-action"
             aria-label={`Select ${project.name} as task project`}
             tabIndex={0}
-            onKeyDown={() => {
+            onKeyPress={() => {
               setActive(project.projectId);
               setSelectedProject(project.projectId);
             }}
