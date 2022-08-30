@@ -1,8 +1,10 @@
-#Todoist
+# Todoist
 
 Simple clone of todoist app in react, with CI/CD to GH Pages via buddy.
 
 [Demo here](https://michalwielgus.github.io/todoist/)
+
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
